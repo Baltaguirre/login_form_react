@@ -1,14 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import {
+  GlobalStyle,
   Wrapper,
   Form,
   Input,
   Title,
-  Button,
+  Submit,
   Anchor,
   Subtitles,
   Error,
-  P
+  P,
+  ShowPass
 } from './Styledcomponents';
 import './App.css';
 
@@ -20,11 +22,11 @@ function Login() {
     password: ""
   })
   const [error, setError] = useState('');
+  const [passwordVissible, setPasswordVissible] = useState(false);
 
   const handleChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
-    console.log(pRgx.test(value))
     if (value && !pRgx.test(value)) {
       setError('“Usuario o contraseña inválidos“')
     } else {
@@ -40,25 +42,26 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(input.user === "" || input.password === ""){
+    if (input.user === "" || input.password === "") {
       setError('Debes ingresar usuario y contraseña')
     } else {
       alert('form submiteado!')
-    setInput({
-      user: "",
-      password: ""
-    })
+      setInput({
+        user: "",
+        password: ""
+      })
     }
-    
   };
 
 
-
+  const togglePassword = () => {
+    setPasswordVissible(!passwordVissible)
+  }
 
 
   return (
-
-
+    <>
+    <GlobalStyle />
     <Wrapper>
       <Title>PIPE</Title>
       <Subtitles>
@@ -66,7 +69,7 @@ function Login() {
         <p>Contraseña</p>
       </Subtitles>
       <Form onSubmit={handleSubmit}>
-        { error ? <Error>{error}</Error> : <P>|</P> }
+        {error ? <Error>{error}</Error> : <P>|</P>}
         <Input
           name="user"
           type="text"
@@ -76,16 +79,17 @@ function Login() {
         />
         <Input
           name="password"
-          type="password"
+          type={passwordVissible ? "text" : "password"}
           value={input.password}
           onChange={handleChange}
-          placeholder="Ingrese contraseña"
+          placeholder={"Ingrese contraseña"}
         />
         <Anchor href="localhost:3000">Recuperar contraseña</Anchor>
-        <Button onClick={handleSubmit}>Ingresar</Button>
+        <Submit onClick={handleSubmit}>Ingresar</Submit>
       </Form>
+      <ShowPass onClick={togglePassword}>{passwordVissible ? "Ocultar contraseña" : "Mostrar contraseña"}</ShowPass>
     </Wrapper>
-
+    </>
   );
 }
 

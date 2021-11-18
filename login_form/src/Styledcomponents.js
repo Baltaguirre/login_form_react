@@ -1,46 +1,38 @@
-import styled, {createGlobalStyle} from 'styled-components';
-
+import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
-*{
-    padding: 0;
-    margin: 0;
-    box.sizing: border-box;
-    background: #ffff;
-    color: black;
-}
 body, html, #root {
-    heigth: 100%;
-
+    height: 100%;
+    width:95%
 }
-`
-export const Wrapper = styled.section`
+`;
 
+export const Wrapper = styled.section`
 display:flex;
-justify-content: center;
+justify-content: flex-start;
 align-items: center;
 height: 100%;
 width: 100%;
+margin-left:2%;
+overflow-x:hidden;
 `;
 
 export const Subtitles = styled.span`
 margin-left:20%;
-margin-top:8%;
+margin-top:-17%;
 display:flex;
 flex-direction:column;
 justify-content: center;
 align-items: flex-start;
-
 `;
 
 export const Form = styled.form`
-margin-top:10%;
+margin-top:-15%;
 width: 100%;
 max-width: 414px;
 padding: 1.3rem;
 display: flex;
 flex-direction: column;
-position: relative;
 `;
 
 export const Input = styled.input`
@@ -53,7 +45,7 @@ border: 2.5px solid black;
 font-size: 14px;
 `;
 
-export const Button = styled.button`
+export const Submit = styled.button`
 max-width:20%;
 margin-left: 40%;
 font-size: 15px;
@@ -66,8 +58,7 @@ box-shadow: 2px 2px 0px 1px #020202;
 export const Title = styled.h2`
 font-weigth: normal;
 font-size: 45px;
-margin-left: -30%;
-margin-top:-18%;
+margin-top:-40%;
 `;
 
 export const Anchor = styled.a`
@@ -82,4 +73,14 @@ color: red;
 export const P = styled.p`
 color:white;
 width:2%;
+`;
+
+export const ShowPass = styled.button`
+max-width:20%;
+font-size: 15px;
+background:white;
+border: 1px solid;
+cursor: pointer;
+box-shadow: 2px 2px 0px 1px #020202;
+margin-top: -12%;
 `;
