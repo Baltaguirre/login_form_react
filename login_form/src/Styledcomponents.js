@@ -3,18 +3,18 @@ import styled, { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
 body, html, #root {
     height: 100%;
-    width:95%
+    width:95%;
 }
 `;
 
 export const Wrapper = styled.section`
 display:flex;
-justify-content: flex-start;
+justify-content: center;
 align-items: center;
 height: 100%;
 width: 100%;
 margin-left:2%;
-overflow-x:hidden;
+
 `;
 
 export const Subtitles = styled.span`
